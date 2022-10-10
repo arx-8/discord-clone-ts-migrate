@@ -4,7 +4,9 @@ let subConnection: $TSFixMe;
 let con: $TSFixMe;
 
 const createConnection = function () {
+  // @ts-expect-error TS(2379) FIXME: Argument of type '{ url: string | undefined; }' is... Remove this comment to see the full error message
   const redis = redisObject.createClient({
+    // @ts-expect-error TS(4111) FIXME: Property 'REDIS_HOST' comes from an index signatur... Remove this comment to see the full error message
     url: process.env.REDIS_HOST,
   });
 
@@ -21,6 +23,7 @@ const createConnection = function () {
 };
 
 const createSubConnection = async function () {
+  // @ts-expect-error TS(2379) FIXME: Argument of type '{ url: string | undefined; }' is... Remove this comment to see the full error message
   const redis = redisObject.createClient({ url: process.env.REDIS_HOST });
   redis.on('connect', function () {
     console.log('Redis subscribe Connected');
