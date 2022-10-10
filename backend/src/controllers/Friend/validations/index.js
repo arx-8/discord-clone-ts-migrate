@@ -1,4 +1,4 @@
-const Joi = require('joi');
+import Joi from 'joi';
 
 const createFriendRequest = {
   body: Joi.object().keys({

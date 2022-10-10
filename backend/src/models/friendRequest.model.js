@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const { toJSON, paginate } = require('./plugins');
-const { FRIEND_STATUS } = require('../config/constants/modelsConstants');
+import mongoose from 'mongoose';
+import { toJSON, paginate } from './plugins';
+import { FRIEND_STATUS } from '../config/constants/modelsConstants';
 
 const friendRequestSchema = mongoose.Schema(
   {

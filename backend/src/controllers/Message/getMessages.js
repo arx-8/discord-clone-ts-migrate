@@ -1,7 +1,6 @@
-const httpStatus = require('http-status');
-
-const messageService = require('../../services/message.service');
-const catchAsync = require('../../utils/catchAsync');
+import httpStatus from 'http-status';
+import messageService from '../../services/message.service';
+import catchAsync from '../../utils/catchAsync';
 
 module.exports = catchAsync(async (req, res) => {
   const { roomId } = req.params;

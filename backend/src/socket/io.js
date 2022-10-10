@@ -1,9 +1,9 @@
-const socketIo = require('socket.io');
-const { createAdapter } = require('@socket.io/redis-adapter');
-const { getSubConnection, getConnection } = require('../lib/redisConnection');
-const passport = require('passport');
-const { jwtStrategy } = require('../config/passport');
-const routes = require('./socket.routes');
+import socketIo from 'socket.io';
+import { createAdapter } from '@socket.io/redis-adapter';
+import { getSubConnection, getConnection } from '../lib/redisConnection';
+import passport from 'passport';
+import { jwtStrategy } from '../config/passport';
+import routes from './socket.routes';
 
 // https://philenius.github.io/web%20development/2021/03/31/use-passportjs-for-authentication-in-socket-io.html
 // authenticate socket.io connection using passport jwt strategy

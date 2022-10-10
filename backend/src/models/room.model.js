@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { toJSON, paginate } = require('./plugins');
+import mongoose from 'mongoose';
+import { toJSON, paginate } from './plugins';
 
 const roomRequestSchema = mongoose.Schema(
   {

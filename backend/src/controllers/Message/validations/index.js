@@ -1,5 +1,5 @@
-const Joi = require('joi');
-const { objectId } = require('../../../validations/custom.validation');
+import Joi from 'joi';
+import { objectId } from '../../../validations/custom.validation';
 
 const createMessage = {
   body: Joi.object().keys({

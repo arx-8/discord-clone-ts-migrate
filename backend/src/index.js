@@ -1,11 +1,10 @@
-const http = require('http');
-const cors = require('cors');
-
-const mongoose = require('mongoose');
-const app = require('./app');
-const config = require('./config/config');
-const socketIo = require('./socket/io');
-const { getConnection } = require('./lib/redisConnection');
+import http from 'http';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import app from './app';
+import config from './config/config';
+import socketIo from './socket/io';
+import { getConnection } from './lib/redisConnection';
 
 let server;
 mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {

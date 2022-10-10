@@ -1,9 +1,9 @@
-const express = require('express');
-const authRoute = require('../../controllers/Auth/auth.route');
-const userRoute = require('../../controllers/User/user.route');
-const friendRoute = require('../../controllers/Friend/friend.route');
-const roomRoute = require('../../controllers/Room/room.route');
-const messageRoute = require('../../controllers/Message/message.route');
+import express from 'express';
+import authRoute from '../../controllers/Auth/auth.route';
+import userRoute from '../../controllers/User/user.route';
+import friendRoute from '../../controllers/Friend/friend.route';
+import roomRoute from '../../controllers/Room/room.route';
+import messageRoute from '../../controllers/Message/message.route';
 
 const router = express.Router();
 

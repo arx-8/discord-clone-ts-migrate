@@ -1,4 +1,4 @@
-const redisObject = require('redis');
+import redisObject from 'redis';
 
 let subConnection;
 let con;

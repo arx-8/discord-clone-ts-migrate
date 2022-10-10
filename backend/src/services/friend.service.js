@@ -1,7 +1,7 @@
-const httpStatus = require('http-status');
-const { User, FriendRequest } = require('../models');
-const { FRIEND_STATUS } = require('../config/constants/modelsConstants');
-const ApiError = require('../utils/ApiError');
+import httpStatus from 'http-status';
+import { User, FriendRequest } from '../models';
+import { FRIEND_STATUS } from '../config/constants/modelsConstants';
+import ApiError from '../utils/ApiError';
 
 /**
  * Create a friend request

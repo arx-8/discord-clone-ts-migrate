@@ -1,9 +1,9 @@
-const express = require('express');
-const multer = require('multer');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
-const validations = require('./validations');
-const messageController = require('./index');
+import express from 'express';
+import multer from 'multer';
+import auth from '../../middlewares/auth';
+import validate from '../../middlewares/validate';
+import validations from './validations';
+import messageController from './index';
 
 const upload = multer();
 const router = express.Router();

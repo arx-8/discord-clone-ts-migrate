@@ -1,15 +1,15 @@
-const express = require('express');
-const helmet = require('helmet');
-const xss = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
-const compression = require('compression');
-const cors = require('cors');
-const passport = require('passport');
-const httpStatus = require('http-status');
-const { jwtStrategy } = require('./config/passport');
-const routes = require('./routes/v1');
-const { errorConverter, errorHandler } = require('./middlewares/error');
-const ApiError = require('./utils/ApiError');
+import express from 'express';
+import helmet from 'helmet';
+import xss from 'xss-clean';
+import mongoSanitize from 'express-mongo-sanitize';
+import compression from 'compression';
+import cors from 'cors';
+import passport from 'passport';
+import httpStatus from 'http-status';
+import { jwtStrategy } from './config/passport';
+import routes from './routes/v1';
+import { errorConverter, errorHandler } from './middlewares/error';
+import ApiError from './utils/ApiError';
 const app = express();
 
 // set security HTTP headers

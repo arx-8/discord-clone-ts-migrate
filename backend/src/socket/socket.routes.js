@@ -1,6 +1,6 @@
-const { getConnection } = require('../lib/redisConnection');
+import { getConnection } from '../lib/redisConnection';
 const redis = getConnection();
-const userService = require('../services/user.service');
+import userService from '../services/user.service';
 
 const SOCKET_ID_IN_ROOM = 'socketIdInRoom-';
 const USER = 'user-';

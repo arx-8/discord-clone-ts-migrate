@@ -1,8 +1,8 @@
-const httpStatus = require('http-status');
-const ShortUniqueId = require('short-unique-id');
-const { User } = require('../models');
-const ApiError = require('../utils/ApiError');
-const {COLORS} = require('../config/constants/modelsConstants')
+import httpStatus from 'http-status';
+import ShortUniqueId from 'short-unique-id';
+import { User } from '../models';
+import ApiError from '../utils/ApiError';
+import { COLORS } from '../config/constants/modelsConstants';
 const uid = new ShortUniqueId({ length: 4, dictionary: [0,1,2,3,4,5,6,7,8,9] });
 
 

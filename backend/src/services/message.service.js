@@ -1,7 +1,7 @@
-const httpStatus = require('http-status');
-const { FriendRequest, Room, Message } = require('../models');
-const { FRIEND_STATUS } = require('../config/constants/modelsConstants');
-const ApiError = require('../utils/ApiError');
+import httpStatus from 'http-status';
+import { FriendRequest, Room, Message } from '../models';
+import { FRIEND_STATUS } from '../config/constants/modelsConstants';
+import ApiError from '../utils/ApiError';
 
 function friendId(user, object) {
   if (user._id.toString() === object.sender.toString()) return object.receiver;
