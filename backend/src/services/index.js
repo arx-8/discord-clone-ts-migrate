@@ -1,3 +1,3 @@
-module.exports.authService = require('./auth.service');
-module.exports.tokenService = require('./token.service');
-module.exports.userService = require('./user.service');
+export const authService = require('./auth.service');
+export const tokenService = require('./token.service');
+export const userService = require('./user.service');

@@ -34,4 +34,4 @@ friendRequestSchema.plugin(paginate);
  */
 const FriendRequest = mongoose.model('FriendRequest', friendRequestSchema);
 
-module.exports = FriendRequest;
+export default FriendRequest;

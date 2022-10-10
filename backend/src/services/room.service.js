@@ -105,7 +105,7 @@ const closeRoom = async (user, roomId) => {
   return room;
 };
 
-module.exports = {
+export default {
   getOrCreateRoom,
   getOpenRooms,
   closeRoom,

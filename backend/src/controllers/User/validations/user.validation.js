@@ -53,7 +53,7 @@ const createFriendRequest = {
   }),
 };
 
-module.exports = {
+export default {
   createUser,
   getUsers,
   getUser,

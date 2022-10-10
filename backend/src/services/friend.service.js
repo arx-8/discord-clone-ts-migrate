@@ -108,7 +108,7 @@ const getAllFriends = async (user) => {
   return friends;
 };
 
-module.exports = {
+export default {
   createFriendRequest,
   pendingFriendRequests,
   outGoingRequests,

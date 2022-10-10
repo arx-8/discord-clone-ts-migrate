@@ -94,7 +94,7 @@ const verifyEmail = async (verifyEmailToken) => {
   }
 };
 
-module.exports = {
+export default {
   loginUserWithEmailAndPassword,
   logout,
   refreshAuth,

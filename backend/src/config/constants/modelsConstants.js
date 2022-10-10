@@ -1,7 +1,7 @@
-exports.FRIEND_STATUS = {
+export const FRIEND_STATUS = {
   PENDING: 'PENDING',
   BLOCKED: 'BLOCKED',
   FRIEND: 'FRIEND',
 };
 
-exports.COLORS = ['red', 'green', 'yellow', 'heroBackground', 'sideBarChannels']
+export const COLORS = ['red', 'green', 'yellow', 'heroBackground', 'sideBarChannels'];

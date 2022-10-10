@@ -87,7 +87,7 @@ const deleteUserById = async (userId) => {
   return user;
 };
 
-module.exports = {
+export default {
   createUser,
   queryUsers,
   getUserById,

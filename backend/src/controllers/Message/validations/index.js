@@ -17,7 +17,7 @@ const editMessage = {
   }),
 };
 
-module.exports = {
+export default {
   createMessage,
   editMessage,
 };

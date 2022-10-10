@@ -34,7 +34,7 @@ const deleteUser = catchAsync(async (req, res) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
-module.exports = {
+export default {
   createUser,
   getUsers,
   getUser,

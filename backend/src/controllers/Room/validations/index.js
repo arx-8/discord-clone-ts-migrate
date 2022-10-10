@@ -13,7 +13,7 @@ const closeRoom = {
   }),
 };
 
-module.exports = {
+export default {
   getOrCreateRoom,
   closeRoom
 };

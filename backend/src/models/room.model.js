@@ -42,4 +42,4 @@ roomRequestSchema.plugin(paginate);
  */
 const Room = mongoose.model('room', roomRequestSchema);
 
-module.exports = Room;
+export default Room;

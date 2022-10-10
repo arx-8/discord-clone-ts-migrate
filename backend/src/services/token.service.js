@@ -113,7 +113,7 @@ const generateVerifyEmailToken = async (user) => {
   return verifyEmailToken;
 };
 
-module.exports = {
+export default {
   generateToken,
   saveToken,
   verifyToken,

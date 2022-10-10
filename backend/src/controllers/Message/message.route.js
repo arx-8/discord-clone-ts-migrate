@@ -13,4 +13,4 @@ router.post('/send-message', auth(), upload.none(), messageController.sendMessag
 router.put('/edit-message/:messageId', auth(), validate(validations.editMessage), messageController.editMessage);
 router.delete('/:messageId', auth(), messageController.deleteMessage);
 
-module.exports = router;
+export default router;

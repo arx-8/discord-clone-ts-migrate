@@ -7,6 +7,6 @@ const createFriendRequest = {
   }),
 };
 
-module.exports = {
+export default {
   createFriendRequest,
 };

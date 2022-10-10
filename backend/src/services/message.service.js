@@ -134,7 +134,7 @@ const deleteMessage = async (user, messageId) => {
   return message;
 };
 
-module.exports = {
+export default {
   createMessage,
   queryMessages,
   editMessage,

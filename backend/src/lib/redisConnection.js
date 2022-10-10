@@ -34,7 +34,7 @@ const createSubConnection = async function () {
   return redis;
 };
 
-module.exports.getSubConnection = async function () {
+export const getSubConnection = async function () {
   if (!subConnection) {
     subConnection = await createSubConnection();
   }
@@ -42,7 +42,7 @@ module.exports.getSubConnection = async function () {
   return subConnection;
 };
 
-module.exports.getConnection = function () {
+export const getConnection = function () {
   if (!con) con = createConnection();
 
   return con;

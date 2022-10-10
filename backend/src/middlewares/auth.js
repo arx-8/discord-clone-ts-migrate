@@ -30,4 +30,4 @@ const auth =
       .catch((err) => next(err));
   };
 
-module.exports = auth;
+export default auth;

@@ -37,7 +37,7 @@ const errorHandler = (err, req, res, next) => {
   res.status(statusCode).send(response);
 };
 
-module.exports = {
+export default {
   errorConverter,
   errorHandler,
 };

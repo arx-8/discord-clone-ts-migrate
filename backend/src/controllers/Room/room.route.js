@@ -10,4 +10,4 @@ router.post('/get-or-create', auth(), validate(validations.getOrCreateRoom), roo
 router.get('/open-rooms', auth(), roomsController.getOpenRooms);
 router.put('/close-room/:roomId', auth(), validate(validations.closeRoom), roomsController.closeRoom);
 
-module.exports = router;
+export default router;

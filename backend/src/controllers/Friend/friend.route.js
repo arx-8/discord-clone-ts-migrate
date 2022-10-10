@@ -13,4 +13,4 @@ router.patch('/cancel-pending-request', auth(), friendsController.cancelPendingR
 router.patch('/accept-pending-request', auth(), friendsController.acceptPendingRequest);
 router.get('/all-friends', auth(), friendsController.getAllFriends);
 
-module.exports = router;
+export default router;

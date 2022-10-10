@@ -1,4 +1,4 @@
-module.exports.sendMessage = require('./sendMessage');
-module.exports.editMessage = require('./editMessage');
-module.exports.getMessages = require('./getMessages');
-module.exports.deleteMessage = require('./deleteMessage');
+export const sendMessage = require('./sendMessage');
+export const editMessage = require('./editMessage');
+export const getMessages = require('./getMessages');
+export const deleteMessage = require('./deleteMessage');

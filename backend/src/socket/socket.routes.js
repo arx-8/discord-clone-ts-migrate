@@ -7,7 +7,7 @@ const USER = 'user-';
 const ONLINE_USER = 'online-user-';
 const USERS_IN_ROOM = 'usersInRoom-';
 
-module.exports = [
+export default [
   {
     name: 'online',
     controller: async (socket, { userId }) => {

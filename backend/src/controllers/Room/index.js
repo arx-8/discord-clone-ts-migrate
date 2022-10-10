@@ -1,3 +1,3 @@
-module.exports.getOrCreateRoom = require('./getOrCreateRoom');
-module.exports.getOpenRooms = require('./getOpenRooms');
-module.exports.closeRoom = require('./closeRoom');
+export const getOrCreateRoom = require('./getOrCreateRoom');
+export const getOpenRooms = require('./getOpenRooms');
+export const closeRoom = require('./closeRoom');

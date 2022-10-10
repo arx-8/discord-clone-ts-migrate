@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import messageService from '../../services/message.service';
 import catchAsync from '../../utils/catchAsync';
 
-module.exports = catchAsync(async (req, res) => {
+export default catchAsync(async (req, res) => {
   const { message } = req.body;
   const { messageId } = req.params;
 

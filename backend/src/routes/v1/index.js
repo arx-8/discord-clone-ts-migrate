@@ -13,4 +13,4 @@ router.use('/friends', friendRoute);
 router.use('/rooms', roomRoute);
 router.use('/messages', messageRoute);
 
-module.exports = router;
+export default router;

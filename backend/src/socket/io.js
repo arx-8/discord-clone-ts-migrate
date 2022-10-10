@@ -49,7 +49,8 @@ const setup = async (server) => {
 
   return io;
 };
-module.exports = {
+
+export default {
   setup,
   getSocketIo,
 };
