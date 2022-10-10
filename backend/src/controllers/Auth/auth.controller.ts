@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
-// @ts-expect-error TS(2305): Module '"../../services"' has no exported member '... Remove this comment to see the full error message
+// @ts-expect-error TS(2305) FIXME: Module '"../../services"' has no exported member '... Remove this comment to see the full error message
 import { authService, userService, tokenService, emailService } from '../../services';
 
 const register = catchAsync(async (req: $TSFixMe, res: $TSFixMe) => {

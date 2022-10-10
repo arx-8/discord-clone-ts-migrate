@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 import { toJSON } from './plugins';
-// @ts-expect-error TS(2614): Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
 import { tokenTypes } from '../config/tokens';
 
-// @ts-expect-error TS(2348): Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
+// @ts-expect-error TS(2348) FIXME: Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
 const tokenSchema = mongoose.Schema(
   {
     token: {

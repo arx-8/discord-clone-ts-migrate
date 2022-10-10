@@ -1,9 +1,9 @@
 import socketIo from 'socket.io';
 import { createAdapter } from '@socket.io/redis-adapter';
 import { getSubConnection, getConnection } from '../lib/redisConnection';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'pass... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'pass... Remove this comment to see the full error message
 import passport from 'passport';
-// @ts-expect-error TS(2614): Module '"../config/passport"' has no exported memb... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/passport"' has no exported memb... Remove this comment to see the full error message
 import { jwtStrategy } from '../config/passport';
 import routes from './socket.routes';
 
@@ -35,7 +35,7 @@ const setup = async (server: $TSFixMe) => {
 
   // const socketIo = new Server();
   // socketIo.adapter(createAdapter(pubClient, subClient));
-  // @ts-expect-error TS(2349): This expression is not callable.
+  // @ts-expect-error TS(2349) FIXME: This expression is not callable.
   io = socketIo(server, {
     cors: {
       origin: '*',

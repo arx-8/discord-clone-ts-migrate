@@ -3,7 +3,7 @@ import ShortUniqueId from 'short-unique-id';
 import { User } from '../models';
 import ApiError from '../utils/ApiError';
 import { COLORS } from '../config/constants/modelsConstants';
-// @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
+// @ts-expect-error TS(2322) FIXME: Type 'number' is not assignable to type 'string'.
 const uid = new ShortUniqueId({ length: 4, dictionary: [0,1,2,3,4,5,6,7,8,9] });
 
 

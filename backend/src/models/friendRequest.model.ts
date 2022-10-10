@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { toJSON, paginate } from './plugins';
 import { FRIEND_STATUS } from '../config/constants/modelsConstants';
 
-// @ts-expect-error TS(2348): Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
+// @ts-expect-error TS(2348) FIXME: Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
 const friendRequestSchema = mongoose.Schema(
   {
     from: {

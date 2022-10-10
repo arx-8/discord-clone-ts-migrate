@@ -45,7 +45,7 @@ const paginate = (schema: $TSFixMe) => {
           populateOption
             .split('.')
             .reverse()
-            // @ts-expect-error TS(7006): Parameter 'a' implicitly has an 'any' type.
+            // @ts-expect-error TS(7006) FIXME: Parameter 'a' implicitly has an 'any' type.
             .reduce((a, b) => ({
             path: b,
             populate: a

@@ -1,8 +1,8 @@
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'pass... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'pass... Remove this comment to see the full error message
 import passport from 'passport';
 import httpStatus from 'http-status';
 import ApiError from '../utils/ApiError';
-// @ts-expect-error TS(2614): Module '"../config/roles"' has no exported member ... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/roles"' has no exported member ... Remove this comment to see the full error message
 import { roleRights } from '../config/roles';
 
 const verifyCallback = (req: $TSFixMe, resolve: $TSFixMe, reject: $TSFixMe, requiredRights: $TSFixMe) => async (err: $TSFixMe, user: $TSFixMe, info: $TSFixMe) => {

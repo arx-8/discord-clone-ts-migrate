@@ -1,7 +1,7 @@
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'pass... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'pass... Remove this comment to see the full error message
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 import config from './config';
-// @ts-expect-error TS(2614): Module '"./tokens"' has no exported member 'tokenT... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"./tokens"' has no exported member 'tokenT... Remove this comment to see the full error message
 import { tokenTypes } from './tokens';
 import { User } from '../models';
 

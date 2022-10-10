@@ -1,4 +1,4 @@
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'json... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'json... Remove this comment to see the full error message
 import jwt from 'jsonwebtoken';
 import dayjs from 'dayjs';
 import httpStatus from 'http-status';
@@ -6,7 +6,7 @@ import config from '../config/config';
 import userService from './user.service';
 import { Token } from '../models';
 import ApiError from '../utils/ApiError';
-// @ts-expect-error TS(2614): Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
 import { tokenTypes } from '../config/tokens';
 
 /**

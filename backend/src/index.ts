@@ -16,7 +16,7 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   getConnection();
 
   // init socket
-  // @ts-expect-error TS(2554): Expected 1 arguments, but got 2.
+  // @ts-expect-error TS(2554) FIXME: Expected 1 arguments, but got 2.
   socketIo.setup(server, cors);
 
   server.listen(config.port, () => {

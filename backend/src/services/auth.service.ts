@@ -3,7 +3,7 @@ import tokenService from './token.service';
 import userService from './user.service';
 import Token from '../models/token.model';
 import ApiError from '../utils/ApiError';
-// @ts-expect-error TS(2614): Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
 import { tokenTypes } from '../config/tokens';
 
 /**

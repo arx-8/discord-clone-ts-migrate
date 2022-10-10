@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'vali... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'vali... Remove this comment to see the full error message
 import validator from 'validator';
-// @ts-expect-error TS(7016): Could not find a declaration file for module 'bcry... Remove this comment to see the full error message
+// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'bcry... Remove this comment to see the full error message
 import bcrypt from 'bcryptjs';
 import { toJSON, paginate } from './plugins';
-// @ts-expect-error TS(2614): Module '"../config/roles"' has no exported member ... Remove this comment to see the full error message
+// @ts-expect-error TS(2614) FIXME: Module '"../config/roles"' has no exported member ... Remove this comment to see the full error message
 import { roles } from '../config/roles';
 
-// @ts-expect-error TS(2348): Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
+// @ts-expect-error TS(2348) FIXME: Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
 const userSchema = mongoose.Schema(
   {
     username: {
