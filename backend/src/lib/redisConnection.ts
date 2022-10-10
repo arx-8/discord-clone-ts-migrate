@@ -1,7 +1,7 @@
 import redisObject from 'redis';
 
-let subConnection;
-let con;
+let subConnection: $TSFixMe;
+let con: $TSFixMe;
 
 const createConnection = function () {
   const redis = redisObject.createClient({

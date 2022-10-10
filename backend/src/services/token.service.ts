@@ -1,3 +1,4 @@
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'json... Remove this comment to see the full error message
 import jwt from 'jsonwebtoken';
 import dayjs from 'dayjs';
 import httpStatus from 'http-status';
@@ -5,6 +6,7 @@ import config from '../config/config';
 import userService from './user.service';
 import { Token } from '../models';
 import ApiError from '../utils/ApiError';
+// @ts-expect-error TS(2614): Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
 import { tokenTypes } from '../config/tokens';
 
 /**
@@ -15,7 +17,7 @@ import { tokenTypes } from '../config/tokens';
  * @param {string} [secret]
  * @returns {string}
  */
-const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
+const generateToken = (userId: $TSFixMe, expires: $TSFixMe, type: $TSFixMe, secret = config.jwt.secret) => {
   const payload = {
     sub: userId,
     iat: dayjs().unix(),
@@ -34,7 +36,7 @@ const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
  * @param {boolean} [blacklisted]
  * @returns {Promise<Token>}
  */
-const saveToken = async (token, userId, expires, type, blacklisted = false) => {
+const saveToken = async (token: $TSFixMe, userId: $TSFixMe, expires: $TSFixMe, type: $TSFixMe, blacklisted = false) => {
   const tokenDoc = await Token.create({
     token,
     user: userId,
@@ -51,7 +53,7 @@ const saveToken = async (token, userId, expires, type, blacklisted = false) => {
  * @param {string} type
  * @returns {Promise<Token>}
  */
-const verifyToken = async (token, type) => {
+const verifyToken = async (token: $TSFixMe, type: $TSFixMe) => {
   const payload = jwt.verify(token, config.jwt.secret);
   const tokenDoc = await Token.findOne({ token, type, user: payload.sub, blacklisted: false });
   if (!tokenDoc) {
@@ -65,7 +67,7 @@ const verifyToken = async (token, type) => {
  * @param {User} user
  * @returns {Promise<Object>}
  */
-const generateAuthTokens = async (user) => {
+const generateAuthTokens = async (user: $TSFixMe) => {
   const accessTokenExpires = dayjs().add(config.jwt.accessExpirationMinutes, 'minute');
   const accessToken = generateToken(user.id, accessTokenExpires, tokenTypes.ACCESS);
 
@@ -90,7 +92,7 @@ const generateAuthTokens = async (user) => {
  * @param {string} email
  * @returns {Promise<string>}
  */
-const generateResetPasswordToken = async (email) => {
+const generateResetPasswordToken = async (email: $TSFixMe) => {
   const user = await userService.getUserByEmail(email);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'No users found with this email');
@@ -106,7 +108,7 @@ const generateResetPasswordToken = async (email) => {
  * @param {User} user
  * @returns {Promise<string>}
  */
-const generateVerifyEmailToken = async (user) => {
+const generateVerifyEmailToken = async (user: $TSFixMe) => {
   const expires = dayjs().add(config.jwt.verifyEmailExpirationMinutes, 'minute');
   const verifyEmailToken = generateToken(user.id, expires, tokenTypes.VERIFY_EMAIL);
   await saveToken(verifyEmailToken, user.id, expires, tokenTypes.VERIFY_EMAIL);

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { toJSON, paginate } from './plugins';
 
+// @ts-expect-error TS(2348): Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
 const messageSchema = mongoose.Schema(
   {
     senderId: {

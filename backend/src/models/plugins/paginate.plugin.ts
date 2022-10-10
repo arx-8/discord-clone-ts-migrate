@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-const paginate = (schema) => {
+const paginate = (schema: $TSFixMe) => {
   /**
    * @typedef {Object} QueryResult
    * @property {Document[]} results - Results found
@@ -19,11 +19,11 @@ const paginate = (schema) => {
    * @param {number} [options.page] - Current page (default = 1)
    * @returns {Promise<QueryResult>}
    */
-  schema.statics.paginate = async function (filter, options) {
+  schema.statics.paginate = async function (filter: $TSFixMe, options: $TSFixMe) {
     let sort = '';
     if (options.sortBy) {
-      const sortingCriteria = [];
-      options.sortBy.split(',').forEach((sortOption) => {
+      const sortingCriteria: $TSFixMe = [];
+      options.sortBy.split(',').forEach((sortOption: $TSFixMe) => {
         const [key, order] = sortOption.split(':');
         sortingCriteria.push((order === 'desc' ? '-' : '') + key);
       });
@@ -40,12 +40,16 @@ const paginate = (schema) => {
     let docsPromise = this.find(filter).sort(sort).skip(skip).limit(limit);
 
     if (options.populate) {
-      options.populate.split(',').forEach((populateOption) => {
+      options.populate.split(',').forEach((populateOption: $TSFixMe) => {
         docsPromise = docsPromise.populate(
           populateOption
             .split('.')
             .reverse()
-            .reduce((a, b) => ({ path: b, populate: a }))
+            // @ts-expect-error TS(7006): Parameter 'a' implicitly has an 'any' type.
+            .reduce((a, b) => ({
+            path: b,
+            populate: a
+          }))
         );
       });
     }

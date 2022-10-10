@@ -9,7 +9,7 @@ import ApiError from '../utils/ApiError';
  * @param {Object} userBody
  * @returns {Promise<User>}
  */
-const createFriendRequest = async (user, userBody) => {
+const createFriendRequest = async (user: $TSFixMe, userBody: $TSFixMe) => {
   const { username, shortId } = userBody;
 
   const foundUser = await User.findOne({ username, shortId });
@@ -41,7 +41,7 @@ const createFriendRequest = async (user, userBody) => {
  * @param {Object} user
  * @returns {Promise<User>}
  */
-const pendingFriendRequests = async (user) => {
+const pendingFriendRequests = async (user: $TSFixMe) => {
   const friendRequest = await FriendRequest.find({ to: user.id, status: FRIEND_STATUS.PENDING })
     .populate({ path: 'to' })
     .populate({ path: 'from' });
@@ -54,7 +54,7 @@ const pendingFriendRequests = async (user) => {
  * @param {Object} user
  * @returns {Promise<User>}
  */
-const outGoingRequests = async (user) => {
+const outGoingRequests = async (user: $TSFixMe) => {
   const friendRequest = await FriendRequest.find({ from: user.id, status: FRIEND_STATUS.PENDING })
     .populate({ path: 'to' })
     .populate({ path: 'from' });
@@ -67,7 +67,7 @@ const outGoingRequests = async (user) => {
  * @param {ObjectId} requestId
  * @returns {Promise<User>}
  */
-const cancelPendingRequest = async (requestId) => {
+const cancelPendingRequest = async (requestId: $TSFixMe) => {
   const deletedRequest = await FriendRequest.findByIdAndRemove({ _id: requestId });
 
   return deletedRequest;
@@ -78,7 +78,7 @@ const cancelPendingRequest = async (requestId) => {
  * @param {ObjectId} requestId
  * @returns {Promise<User>}
  */
-const acceptPendingRequest = async (user, requestId) => {
+const acceptPendingRequest = async (user: $TSFixMe, requestId: $TSFixMe) => {
   const friendRequest = await FriendRequest.findById({ _id: requestId });
 
   if (friendRequest.status !== FRIEND_STATUS.PENDING) {
@@ -100,7 +100,7 @@ const acceptPendingRequest = async (user, requestId) => {
  * @param {ObjectId} requestId
  * @returns {Promise<User>}
  */
-const getAllFriends = async (user) => {
+const getAllFriends = async (user: $TSFixMe) => {
   const friends = await FriendRequest.find({ $or: [{ to: user.id }, { from: user.id }], status: FRIEND_STATUS.FRIEND })
     .populate({ path: 'to' })
     .populate({ path: 'from' });

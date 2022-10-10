@@ -10,7 +10,9 @@ const USERS_IN_ROOM = 'usersInRoom-';
 export default [
   {
     name: 'online',
-    controller: async (socket, { userId }) => {
+    controller: async (socket: $TSFixMe, {
+      userId
+    }: $TSFixMe) => {
       await redis.set(`${ONLINE_USER}${socket.id}`, userId);
 
       socket.join(userId);
@@ -18,7 +20,10 @@ export default [
   },
   {
     name: 'joinRoom',
-    controller: async (socket, { roomId, userId }) => {
+    controller: async (socket: $TSFixMe, {
+      roomId,
+      userId
+    }: $TSFixMe) => {
       const userObject = await userService.getUserById(userId);
 
       await Promise.all([
@@ -32,7 +37,10 @@ export default [
   },
   {
     name: 'roomSendMessage',
-    controller: async (socket, { msg, receiverId }) => {
+    controller: async (socket: $TSFixMe, {
+      msg,
+      receiverId
+    }: $TSFixMe) => {
       const [roomId, userObject] = await Promise.all([
         redis.get(`${SOCKET_ID_IN_ROOM}${socket.id}`),
         redis.get(`${USER}${socket.id}`),
@@ -52,7 +60,9 @@ export default [
   },
   {
     name: 'sendFriendRequest',
-    controller: async (socket, { receiverId }) => {
+    controller: async (socket: $TSFixMe, {
+      receiverId
+    }: $TSFixMe) => {
       if (receiverId) {
         socket.to(receiverId).emit('friendRequest');
       }
@@ -60,7 +70,9 @@ export default [
   },
   {
     name: 'sendFriendAcceptRequest',
-    controller: async (socket, { receiverId }) => {
+    controller: async (socket: $TSFixMe, {
+      receiverId
+    }: $TSFixMe) => {
       if (receiverId) {
         socket.to(receiverId).emit('friendAcceptRequest');
       }
@@ -68,7 +80,10 @@ export default [
   },
   {
     name: 'sendRoomDeleteMessage',
-    controller: async (socket, { roomId, messageId }) => {
+    controller: async (socket: $TSFixMe, {
+      roomId,
+      messageId
+    }: $TSFixMe) => {
       if (roomId) {
         socket.to(roomId).emit('roomDeleteMessage', { messageId, roomId });
       }
@@ -76,7 +91,7 @@ export default [
   },
   {
     name: 'roomSendEditMessage',
-    controller: async (socket, message) => {
+    controller: async (socket: $TSFixMe, message: $TSFixMe) => {
       if (message) {
         socket.to(message.roomId).emit('roomEditMessage', message);
       }
@@ -84,14 +99,14 @@ export default [
   },
   {
     name: 'leaveRoom',
-    controller: async (socket, roomId) => {
+    controller: async (socket: $TSFixMe, roomId: $TSFixMe) => {
       redis.del(`${SOCKET_ID_IN_ROOM}${socket.id}`);
       socket.leave(roomId);
     },
   },
   {
     name: 'logOut',
-    controller: async (socket, userId) => {
+    controller: async (socket: $TSFixMe, userId: $TSFixMe) => {
       redis.del(`${ONLINE_USER}${socket.id}`);
       redis.del(`${SOCKET_ID_IN_ROOM}${socket.id}`);
 

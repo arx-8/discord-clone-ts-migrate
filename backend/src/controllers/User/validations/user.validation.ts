@@ -1,4 +1,5 @@
 import Joi from 'joi';
+// @ts-expect-error TS(2614): Module '"../../../validations/custom.validation"' ... Remove this comment to see the full error message
 import { objectId } from '../../../validations/custom.validation';
 
 const createUser = {
@@ -45,7 +46,6 @@ const deleteUser = {
   }),
 };
 
-
 const createFriendRequest = {
   body: Joi.object().keys({
     username: Joi.string().min(4).required(),
@@ -59,5 +59,5 @@ export default {
   getUser,
   updateUser,
   deleteUser,
-  createFriendRequest
+  createFriendRequest,
 };

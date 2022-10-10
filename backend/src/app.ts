@@ -1,13 +1,19 @@
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'expr... Remove this comment to see the full error message
 import express from 'express';
 import helmet from 'helmet';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'xss-... Remove this comment to see the full error message
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'comp... Remove this comment to see the full error message
 import compression from 'compression';
 import cors from 'cors';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'pass... Remove this comment to see the full error message
 import passport from 'passport';
 import httpStatus from 'http-status';
+// @ts-expect-error TS(2614): Module '"./config/passport"' has no exported membe... Remove this comment to see the full error message
 import { jwtStrategy } from './config/passport';
 import routes from './routes/v1';
+// @ts-expect-error TS(2614): Module '"./middlewares/error"' has no exported mem... Remove this comment to see the full error message
 import { errorConverter, errorHandler } from './middlewares/error';
 import ApiError from './utils/ApiError';
 const app = express();
@@ -53,7 +59,7 @@ passport.use('jwt', jwtStrategy);
 app.use('/api/v1', routes);
 
 // send back a 404 error for any unknown api request
-app.use((req, res, next) => {
+app.use((req: $TSFixMe, res: $TSFixMe, next: $TSFixMe) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
 

@@ -1,5 +1,7 @@
 class ApiError extends Error {
-  constructor(statusCode, message, isOperational = true, stack = '') {
+  isOperational: $TSFixMe;
+  statusCode: $TSFixMe;
+  constructor(statusCode: $TSFixMe, message: $TSFixMe, isOperational = true, stack = '') {
     super(message);
     this.statusCode = statusCode;
     this.isOperational = isOperational;

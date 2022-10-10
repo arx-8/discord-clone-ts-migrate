@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import messageService from '../../services/message.service';
 import catchAsync from '../../utils/catchAsync';
 
-export default catchAsync(async (req, res) => {
+export default catchAsync(async (req: $TSFixMe, res: $TSFixMe) => {
   const { roomId } = req.params;
   const { page } = req.query;
   const filter = {

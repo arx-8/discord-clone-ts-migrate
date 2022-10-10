@@ -6,7 +6,7 @@ import config from './config/config';
 import socketIo from './socket/io';
 import { getConnection } from './lib/redisConnection';
 
-let server;
+let server: $TSFixMe;
 mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   console.log('Connected to MongoDB');
 
@@ -16,6 +16,7 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   getConnection();
 
   // init socket
+  // @ts-expect-error TS(2554): Expected 1 arguments, but got 2.
   socketIo.setup(server, cors);
 
   server.listen(config.port, () => {
@@ -34,7 +35,7 @@ const exitHandler = () => {
   }
 };
 
-const unexpectedErrorHandler = (error) => {
+const unexpectedErrorHandler = (error: $TSFixMe) => {
   console.log(error);
   // exitHandler();
 };

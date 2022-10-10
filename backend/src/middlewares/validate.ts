@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import pick from '../utils/pick';
 import ApiError from '../utils/ApiError';
 
-const validate = (schema) => (req, res, next) => {
+const validate = (schema: $TSFixMe) => (req: $TSFixMe, res: $TSFixMe, next: $TSFixMe) => {
   const validSchema = pick(schema, ['params', 'query', 'body']);
   const object = pick(req, Object.keys(validSchema));
   const { value, error } = Joi.compile(validSchema)

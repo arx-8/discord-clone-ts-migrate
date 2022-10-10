@@ -9,7 +9,7 @@ import ApiError from '../utils/ApiError';
  * @param {Object} body
  * @returns {Promise<User>}
  */
-const getOrCreateRoom = async (user, body) => {
+const getOrCreateRoom = async (user: $TSFixMe, body: $TSFixMe) => {
   const { id } = body;
 
   const friendShip = await FriendRequest.findOne({
@@ -61,7 +61,7 @@ const getOrCreateRoom = async (user, body) => {
  * @param {Object} user
  * @returns {Promise<User>}
  */
-const getOpenRooms = async (user) => {
+const getOpenRooms = async (user: $TSFixMe) => {
   const rooms = await Room.find({
     $or: [
       { sender: user._id, roomDeletedBySender: false },
@@ -83,7 +83,7 @@ const getOpenRooms = async (user) => {
  * @param {string} roomId
  * @returns {Promise<User>}
  */
-const closeRoom = async (user, roomId) => {
+const closeRoom = async (user: $TSFixMe, roomId: $TSFixMe) => {
   const room = await Room.findById(roomId);
 
   if (!room) {

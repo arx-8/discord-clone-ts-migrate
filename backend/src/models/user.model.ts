@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'vali... Remove this comment to see the full error message
 import validator from 'validator';
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'bcry... Remove this comment to see the full error message
 import bcrypt from 'bcryptjs';
 import { toJSON, paginate } from './plugins';
+// @ts-expect-error TS(2614): Module '"../config/roles"' has no exported member ... Remove this comment to see the full error message
 import { roles } from '../config/roles';
 
+// @ts-expect-error TS(2348): Value of type 'typeof Schema' is not callable. Did... Remove this comment to see the full error message
 const userSchema = mongoose.Schema(
   {
     username: {
@@ -17,7 +21,7 @@ const userSchema = mongoose.Schema(
       unique: true,
       trim: true,
       lowercase: true,
-      validate(value) {
+      validate(value: $TSFixMe) {
         if (!validator.isEmail(value)) {
           throw new Error('Invalid email');
         }
@@ -63,7 +67,7 @@ userSchema.plugin(paginate);
  * @param {ObjectId} [excludeUserId] - The id of the user to be excluded
  * @returns {Promise<boolean>}
  */
-userSchema.statics.isEmailTaken = async function (email, excludeUserId) {
+userSchema.statics.isEmailTaken = async function (email: $TSFixMe, excludeUserId: $TSFixMe) {
   const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
   return !!user;
 };
@@ -73,12 +77,12 @@ userSchema.statics.isEmailTaken = async function (email, excludeUserId) {
  * @param {string} password
  * @returns {Promise<boolean>}
  */
-userSchema.methods.isPasswordMatch = async function (password) {
+userSchema.methods.isPasswordMatch = async function (password: $TSFixMe) {
   const user = this;
   return bcrypt.compare(password, user.password);
 };
 
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function(this: $TSFixMe, next: $TSFixMe) {
   const user = this;
   if (user.isModified('password')) {
     user.password = await bcrypt.hash(user.password, 8);

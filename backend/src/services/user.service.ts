@@ -3,6 +3,7 @@ import ShortUniqueId from 'short-unique-id';
 import { User } from '../models';
 import ApiError from '../utils/ApiError';
 import { COLORS } from '../config/constants/modelsConstants';
+// @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'.
 const uid = new ShortUniqueId({ length: 4, dictionary: [0,1,2,3,4,5,6,7,8,9] });
 
 
@@ -11,7 +12,7 @@ const uid = new ShortUniqueId({ length: 4, dictionary: [0,1,2,3,4,5,6,7,8,9] });
  * @param {Object} userBody
  * @returns {Promise<User>}
  */
-const createUser = async (userBody) => {
+const createUser = async (userBody: $TSFixMe) => {
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }
@@ -31,7 +32,7 @@ const createUser = async (userBody) => {
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const queryUsers = async (filter, options) => {
+const queryUsers = async (filter: $TSFixMe, options: $TSFixMe) => {
   const users = await User.paginate(filter, options);
   return users;
 };
@@ -41,7 +42,7 @@ const queryUsers = async (filter, options) => {
  * @param {ObjectId} id
  * @returns {Promise<User>}
  */
-const getUserById = async (id) => {
+const getUserById = async (id: $TSFixMe) => {
   return User.findById(id);
 };
 
@@ -50,7 +51,7 @@ const getUserById = async (id) => {
  * @param {string} email
  * @returns {Promise<User>}
  */
-const getUserByEmail = async (email) => {
+const getUserByEmail = async (email: $TSFixMe) => {
   return User.findOne({ email });
 };
 
@@ -60,7 +61,7 @@ const getUserByEmail = async (email) => {
  * @param {Object} updateBody
  * @returns {Promise<User>}
  */
-const updateUserById = async (userId, updateBody) => {
+const updateUserById = async (userId: $TSFixMe, updateBody: $TSFixMe) => {
   const user = await getUserById(userId);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
@@ -78,7 +79,7 @@ const updateUserById = async (userId, updateBody) => {
  * @param {ObjectId} userId
  * @returns {Promise<User>}
  */
-const deleteUserById = async (userId) => {
+const deleteUserById = async (userId: $TSFixMe) => {
   const user = await getUserById(userId);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');

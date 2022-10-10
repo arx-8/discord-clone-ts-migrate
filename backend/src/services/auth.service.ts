@@ -3,6 +3,7 @@ import tokenService from './token.service';
 import userService from './user.service';
 import Token from '../models/token.model';
 import ApiError from '../utils/ApiError';
+// @ts-expect-error TS(2614): Module '"../config/tokens"' has no exported member... Remove this comment to see the full error message
 import { tokenTypes } from '../config/tokens';
 
 /**
@@ -11,7 +12,7 @@ import { tokenTypes } from '../config/tokens';
  * @param {string} password
  * @returns {Promise<User>}
  */
-const loginUserWithEmailAndPassword = async (email, password) => {
+const loginUserWithEmailAndPassword = async (email: $TSFixMe, password: $TSFixMe) => {
   const user = await userService.getUserByEmail(email);
   if (!user || !(await user.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect email or password');
@@ -24,7 +25,7 @@ const loginUserWithEmailAndPassword = async (email, password) => {
  * @param {string} refreshToken
  * @returns {Promise}
  */
-const logout = async (refreshToken) => {
+const logout = async (refreshToken: $TSFixMe) => {
   const refreshTokenDoc = await Token.findOne({ token: refreshToken, type: tokenTypes.REFRESH, blacklisted: false });
   if (!refreshTokenDoc) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Not found');
@@ -37,7 +38,7 @@ const logout = async (refreshToken) => {
  * @param {string} refreshToken
  * @returns {Promise<Object>}
  */
-const refreshAuth = async (refreshToken) => {
+const refreshAuth = async (refreshToken: $TSFixMe) => {
   try {
     const refreshTokenDoc = await tokenService.verifyToken(refreshToken, tokenTypes.REFRESH);
     const user = await userService.getUserById(refreshTokenDoc.user);
@@ -48,7 +49,7 @@ const refreshAuth = async (refreshToken) => {
     const tokens = await tokenService.generateAuthTokens(user);
     return { user, tokens };
   } catch (error) {
-    if (error.message === 'Token not found' || error.message === 'jwt expired') {
+    if ((error as $TSFixMe).message === 'Token not found' || (error as $TSFixMe).message === 'jwt expired') {
       throw new ApiError(httpStatus.UNAUTHORIZED, 'Token not found');
     }
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate');
@@ -61,7 +62,7 @@ const refreshAuth = async (refreshToken) => {
  * @param {string} newPassword
  * @returns {Promise}
  */
-const resetPassword = async (resetPasswordToken, newPassword) => {
+const resetPassword = async (resetPasswordToken: $TSFixMe, newPassword: $TSFixMe) => {
   try {
     const resetPasswordTokenDoc = await tokenService.verifyToken(resetPasswordToken, tokenTypes.RESET_PASSWORD);
     const user = await userService.getUserById(resetPasswordTokenDoc.user);
@@ -80,7 +81,7 @@ const resetPassword = async (resetPasswordToken, newPassword) => {
  * @param {string} verifyEmailToken
  * @returns {Promise}
  */
-const verifyEmail = async (verifyEmailToken) => {
+const verifyEmail = async (verifyEmailToken: $TSFixMe) => {
   try {
     const verifyEmailTokenDoc = await tokenService.verifyToken(verifyEmailToken, tokenTypes.VERIFY_EMAIL);
     const user = await userService.getUserById(verifyEmailTokenDoc.user);

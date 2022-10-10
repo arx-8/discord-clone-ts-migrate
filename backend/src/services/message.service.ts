@@ -3,7 +3,7 @@ import { FriendRequest, Room, Message } from '../models';
 import { FRIEND_STATUS } from '../config/constants/modelsConstants';
 import ApiError from '../utils/ApiError';
 
-function friendId(user, object) {
+function friendId(user: $TSFixMe, object: $TSFixMe) {
   if (user._id.toString() === object.sender.toString()) return object.receiver;
 
   return object.sender;
@@ -15,7 +15,7 @@ function friendId(user, object) {
  * @param {Object} body
  * @returns {Promise<User>}
  */
-const createMessage = async (user, body) => {
+const createMessage = async (user: $TSFixMe, body: $TSFixMe) => {
   const { roomId, text } = body;
 
   const room = await Room.findOne({
@@ -58,7 +58,7 @@ const createMessage = async (user, body) => {
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  */
-const queryMessages = async (filter, options, user) => {
+const queryMessages = async (filter: $TSFixMe, options: $TSFixMe, user: $TSFixMe) => {
   const filterClone = { ...filter };
   const room = await Room.findOne({
     $or: [{ sender: user._id }, { receiver: user._id }],
@@ -86,7 +86,7 @@ const queryMessages = async (filter, options, user) => {
  * @param {Object} data
  * @returns {Promise<User>}
  */
-const editMessage = async (user, data) => {
+const editMessage = async (user: $TSFixMe, data: $TSFixMe) => {
   const { messageId, message } = data;
 
   const result = await Message.findOneAndUpdate(
@@ -103,7 +103,7 @@ const editMessage = async (user, data) => {
  * @param {ObjectId} messageId
  * @returns {Promise<User>}
  */
-const deleteMessage = async (user, messageId) => {
+const deleteMessage = async (user: $TSFixMe, messageId: $TSFixMe) => {
   const message = await Message.findOne({ _id: messageId, senderId: user._id });
 
   if (!message) {
