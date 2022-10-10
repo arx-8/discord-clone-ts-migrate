@@ -12,6 +12,7 @@
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:tsc": "tsc --noEmit",
     "prettier": "prettier --check **/*.js",
     "prettier:fix": "prettier --write **/*.js",
     "docker:dev": "docker-compose -f docker-compose.dev.yml up"
