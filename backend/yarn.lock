@@ -6188,6 +6188,11 @@ moment-timezone@^0.5.x:
   dependencies:
     moment ">= 2.9.0"
 
+moment-to-dayjs-codemod@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/moment-to-dayjs-codemod/-/moment-to-dayjs-codemod-0.0.1.tgz#7cc47adbc93af7f2d570841042f10c9f78ff5a0b"
+  integrity sha512-TdEADivbhRtDJEF/ocZscGPr+cuLrbncvSreo1TNKtaczn3UqQp4OtOOj21dnfiytliv2iewo7BKAi2v6dSDlw==
+
 "moment@>= 2.9.0", moment@^2.24.0:
   version "2.29.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
