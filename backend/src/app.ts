@@ -1,4 +1,3 @@
-// @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'expr... Remove this comment to see the full error message
 import express from 'express';
 import helmet from 'helmet';
 // @ts-expect-error TS(7016) FIXME: Could not find a declaration file for module 'xss-... Remove this comment to see the full error message
@@ -31,6 +30,7 @@ app.use(
 );
 app.options(
   '*',
+  // @ts-expect-error TS(2769) FIXME: No overload matches this call.
   cors({
     origin: true,
     optionsSuccessStatus: 200,
